@@ -1,0 +1,10 @@
+icon: https://apps.okteto.com/movies/icon.png
+deploy:
+  - okteto build -t registry.cloud.okteto.net/yudarmada/nodedocker:express-hello .
+  - kubectl apply -f gateway/okteto-stack.yml
+devs:
+  - gateway/okteto.yml
+  - proto/okteto.yml
+  - svc_auth/okteto.yml
+  - svc_order/okteto.yml
+  - svc_product/okteto.yml
